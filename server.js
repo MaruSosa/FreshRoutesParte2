@@ -1,14 +1,17 @@
-
 require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const clienteRoutes = require("./routes/clienteRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware para recibir datos JSON
 app.use(express.json());
+
+// Rutas de la API
+app.use("/api/clientes", clienteRoutes);
 
 // Ruta principal
 app.get("/", (req, res) => {
